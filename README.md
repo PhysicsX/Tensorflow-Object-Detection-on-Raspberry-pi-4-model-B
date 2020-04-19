@@ -43,7 +43,7 @@
 	sudo apt-get install python3-picamera
 	sudo pip3 install matplotlib
 	pip install Pillow
-	wget https://raw.githubusercontent.com/PhysicsX/Tensorflow-Object-Detection-on-Raspberry-pi-4-model-B/master/ObjectDetectionPiCamera.py?token=ABZJOAV7GBFOY4JFPTN6K526TR2NM
+	wget https://raw.githubusercontent.com/PhysicsX/Tensorflow-Object-Detection-on-Raspberry-pi-4-model-B/master/ObjectDetectionPiCamera.py
   
   change the file /home/pi/Desktop/tensorflowRasp/models/research/object_detection/utils/label_map_util.py
 line 138 ->   with tf.io.gfile.GFile(path, 'r') as fid:
