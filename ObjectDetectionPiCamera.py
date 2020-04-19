@@ -9,12 +9,6 @@ import tensorflow as tf
 import argparse
 import sys
 
-# Set up camera constants
-IM_WIDTH = 1280
-IM_HEIGHT = 720
-#IM_WIDTH = 640    Use smaller resolution for
-#IM_HEIGHT = 480   slightly faster framerate
-
 # Select camera type (if user enters --usbcam when calling this script,
 # a USB webcam will be used)
 camera_type = 'picamera'
@@ -101,14 +95,14 @@ font = cv2.FONT_HERSHEY_SIMPLEX
 
 ### Picamera ###
 
-# Initialize Picamera and grab reference to the raw capture
+    # Initialize Picamera and grab reference to the raw capture
 camera = PiCamera()
-camera.resolution = (IM_WIDTH,IM_HEIGHT)
+camera.resolution = (800,480)
 camera.framerate = 10
-rawCapture = PiRGBArray(camera, size=(IM_WIDTH,IM_HEIGHT))
+rawCapture = PiRGBArray(camera, size=(800,480))
 rawCapture.truncate(0)
 
-    for frame1 in camera.capture_continuous(rawCapture, format="bgr",use_video_port=True):
+for frame1 in camera.capture_continuous(rawCapture, format="bgr",use_video_port=True):
 
         t1 = cv2.getTickCount()
         
@@ -144,9 +138,16 @@ rawCapture.truncate(0)
         time1 = (t2-t1)/freq
         frame_rate_calc = 1/time1
 
+        # Press 'q' to quit
+        if cv2.waitKey(1) == ord('q'):
+            break
+
         rawCapture.truncate(0)
 
-    camera.close()
+camera.close()
+
+
+camera.release()
 
 cv2.destroyAllWindows()
 
