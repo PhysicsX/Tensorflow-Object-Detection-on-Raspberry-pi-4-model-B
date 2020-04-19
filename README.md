@@ -25,7 +25,7 @@
 	-> import tensorflow
 	sudo pip3 install pillow lxml jupyter matplotlib cython
 	sudo apt-get install libjpeg-dev libtiff5-dev libjasper-dev libpng12-dev libavcodec-dev libavformat-dev libswscale-dev libv4l-dev libxvidcore-dev libx264-dev qt4-dev-tools
-	sudo pip3 install opencv-python
+	pip3 install opencv-python
 	python3
 	-> import cv2
 	pip3 install opencv-contrib-python==4.1.0.25
@@ -38,11 +38,12 @@
 	export PYTHONPATH=$PYTHONPATH:/home/pi/Desktop/tensorflowRasp/models/research:/home/pi/Desktop/tensorflowRasp/models/research/slim
 	cd models/research/
 	protoc object_detection/protos/*.proto --python_out=.
+	cd object_detection
 	wget http://download.tensorflow.org/models/object_detection/ssdlite_mobilenet_v2_coco_2018_05_09.tar.gz
 	tar -xzvf ssdlite_mobilenet_v2_coco_2018_05_09.tar.gz
-	sudo apt-get install python3-picamera
-	sudo pip3 install matplotlib
-	pip install Pillow
+	pip3 install python3-picamera
+	pip3 install matplotlib
+	pip3 install Pillow
 	wget https://raw.githubusercontent.com/PhysicsX/Tensorflow-Object-Detection-on-Raspberry-pi-4-model-B/master/ObjectDetectionPiCamera.py
   
   change the file /home/pi/Desktop/tensorflowRasp/models/research/object_detection/utils/label_map_util.py
