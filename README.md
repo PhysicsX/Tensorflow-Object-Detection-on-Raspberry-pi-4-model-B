@@ -41,10 +41,10 @@
 	cd object_detection
 	wget http://download.tensorflow.org/models/object_detection/ssdlite_mobilenet_v2_coco_2018_05_09.tar.gz
 	tar -xzvf ssdlite_mobilenet_v2_coco_2018_05_09.tar.gz
-	pip3 install python3-picamera
+	pip3 install picamera
 	pip3 install matplotlib
 	pip3 install Pillow
 	wget https://raw.githubusercontent.com/PhysicsX/Tensorflow-Object-Detection-on-Raspberry-pi-4-model-B/master/ObjectDetectionPiCamera.py
+	python3 ObjectDetectionPiCamera.py
+	-> you will get an error because of new tensorflow library, just change the line in the /home/pi/Desktop/tensorflowRasp/models/research/object_detection/utils/label_map_util.py line 138 ->   with tf.io.gfile.GFile(path, 'r') as fid:
   
-  change the file /home/pi/Desktop/tensorflowRasp/models/research/object_detection/utils/label_map_util.py
-line 138 ->   with tf.io.gfile.GFile(path, 'r') as fid:
