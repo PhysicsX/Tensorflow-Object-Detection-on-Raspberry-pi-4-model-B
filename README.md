@@ -47,4 +47,5 @@
 	wget https://raw.githubusercontent.com/PhysicsX/Tensorflow-Object-Detection-on-Raspberry-pi-4-model-B/master/ObjectDetectionPiCamera.py
 	python3 ObjectDetectionPiCamera.py
 	-> you will get an error because of new tensorflow library, just change the line in the /home/pi/Desktop/tensorflowRasp/models/research/object_detection/utils/label_map_util.py line 138 ->   with tf.io.gfile.GFile(path, 'r') as fid:
-  
+	nano +138 /home/pi/Desktop/tensorflowRasp/models/research/object_detection/utils/label_map_util.py
+  	python3 ObjectDetectionPiCamera.py
